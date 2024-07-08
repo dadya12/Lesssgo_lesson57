@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+    <span style="margin-top: 8px; color: white">|</span>
+    <a class="nav-link active" aria-current="page" href="{% url 'create' %}">Create Task</a>
+    <span style="margin-top: 8px; color: white">|</span>
+{% endblock %}
+
+<title>{% block title %}Detail{% endblock %}</title>
+
+{% block content %}
+    <center>
+        <h1 style="margin-top: 50px; margin-bottom: 50px">Your Task:</h1>
+        <div class="card mb-3" style="border: solid 2px; border-radius: 20px; width: 35%">
+            <h5 class="card-header">{{ task.summary }}</h5>
+            <div class="card-body">
+                <h5 class="card-title">Description: {{ task.description }}</h5>
+                <p class="card-text">Type: {{ task.type }}</p>
+                <p class="card-text">Status: {{ task.status }}</p>
+                <p class="card-text">Create: {{ task.created_date }}</p>
+                <a href="{% url 'edit' task.pk %}" class="btn btn-dark">Edit Task</a>
+                <a href="{% url 'delete' task.pk %}" class="btn btn-dark" style="margin-left: 30px">Delete Task</a>
+            </div>
+        </div>
+    </center>
+
+{% endblock %}
