@@ -15,8 +15,12 @@
             <h5 class="card-header">{{ task.summary }}</h5>
             <div class="card-body">
                 <h5 class="card-title">Description: {{ task.description }}</h5>
-                <p class="card-text">Type: {{ task.type }}</p>
-                <p class="card-text">Status: {{ task.status }}</p>
+                <p class="card-text">Type:
+                    {% for t in task.type.all %}
+                        {{ t.name }}{% if forloop.last %}.{% else %},{% endif %}
+                    {% endfor %}
+                </p>
+                <p class="card-text">Status: {{ task.status }}.</p>
                 <p class="card-text">Create: {{ task.created_date }}</p>
                 <a href="{% url 'edit' task.pk %}" class="btn btn-dark">Edit Task</a>
                 <a href="{% url 'delete' task.pk %}" class="btn btn-dark" style="margin-left: 30px">Delete Task</a>
