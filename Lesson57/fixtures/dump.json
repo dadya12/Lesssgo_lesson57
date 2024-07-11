@@ -93,10 +93,9 @@
     "description": "I find bug in pj54",
     "status": 2,
     "created_date": "2024-07-08T18:16:42.890Z",
-    "updated_date": "2024-07-09T09:26:11.153Z",
+    "updated_date": "2024-07-09T09:32:26.420Z",
     "type": [
-      1,
-      3
+      1
     ]
   }
 },
@@ -126,6 +125,137 @@
     "updated_date": "2024-07-09T09:26:24.398Z",
     "type": [
       3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 9,
+  "fields": {
+    "summary": "Project49",
+    "description": "Oke pj 49",
+    "status": 3,
+    "created_date": "2024-07-11T15:41:35.351Z",
+    "updated_date": "2024-07-11T15:41:35.351Z",
+    "type": [
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 10,
+  "fields": {
+    "summary": "Project48",
+    "description": "Oke pj 48",
+    "status": 2,
+    "created_date": "2024-07-11T15:42:37.002Z",
+    "updated_date": "2024-07-11T15:42:37.002Z",
+    "type": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 11,
+  "fields": {
+    "summary": "Project47",
+    "description": "Oke pj 47",
+    "status": 2,
+    "created_date": "2024-07-11T15:43:01.516Z",
+    "updated_date": "2024-07-11T15:43:01.516Z",
+    "type": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 12,
+  "fields": {
+    "summary": "Project46",
+    "description": "Oke pj 46",
+    "status": 3,
+    "created_date": "2024-07-11T15:43:02.959Z",
+    "updated_date": "2024-07-11T15:43:22.591Z",
+    "type": [
+      1,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 13,
+  "fields": {
+    "summary": "Project45",
+    "description": "Oke pj 45",
+    "status": 1,
+    "created_date": "2024-07-11T15:43:47.868Z",
+    "updated_date": "2024-07-11T15:43:47.868Z",
+    "type": [
+      1
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 14,
+  "fields": {
+    "summary": "Project44",
+    "description": "Oke pj 44",
+    "status": 1,
+    "created_date": "2024-07-11T15:44:01.504Z",
+    "updated_date": "2024-07-11T15:44:01.504Z",
+    "type": [
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 15,
+  "fields": {
+    "summary": "Have no idea",
+    "description": "Prosto anglo no rus",
+    "status": 2,
+    "created_date": "2024-07-11T15:46:45.344Z",
+    "updated_date": "2024-07-11T15:46:45.347Z",
+    "type": [
+      1,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 16,
+  "fields": {
+    "summary": "Pepel nahudi",
+    "description": "Best singer",
+    "status": 1,
+    "created_date": "2024-07-11T15:47:28.815Z",
+    "updated_date": "2024-07-11T15:47:28.815Z",
+    "type": [
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 17,
+  "fields": {
+    "summary": "Not Project",
+    "description": "Not Project btw",
+    "status": 3,
+    "created_date": "2024-07-11T15:47:54.736Z",
+    "updated_date": "2024-07-11T15:47:54.736Z",
+    "type": [
+      2
     ]
   }
 },
