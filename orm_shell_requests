@@ -1,0 +1,34 @@
+1 запрос:
+from datetime import datetime, timedelta
+from webapp.models import Task
+now_date = datetime.now()
+find_date = now_date - timedelta(days=30)
+Task.objects.filter(status__name='Done', updated_date__range=(find_date, now_date))
+<QuerySet [<Task: Project55>, <Task: Project53>, <Task: Project49>, <Task: Project46>, <Task: Not Project>]>
+
+2 запрос:
+from webapp.models import Task
+find_status = ['New', 'In Progress']
+find_type = ['Task', 'Enhancement']
+Task.objects.filter(status__name__in=find_status, type__name__in=find_type)
+<QuerySet [
+        <Task: Project57>,
+        <Task: Project56>,
+        <Task: Project54>,
+        <Task: Project52>,
+        <Task: Project48>,
+        <Task: Project47>,
+        <Task: Project47>,
+        <Task: Project45>,
+        <Task: Project44>,
+        <Task: Have no idea>,
+        <Task: Have no idea>,
+        <Task: Pepel nahudi>
+    ]>
+
+3 запрос:
+from django.db.models import Q
+from webapp.models import Task
+search_type = 'bug'
+Task.objects.exclude(status__name='Done').filter(Q(summary__icontains=search_type) | Q(type__name='Bug'))
+<QuerySet [<Task: Project48>, <Task: Project47>]>
