@@ -15,7 +15,7 @@ class HomePageView(TemplateView):
 
 
 class DetailPageView(TemplateView):
-    template_name = 'detail.html'
+    template_name = 'Project/detail.html'
 
     def get_context_data(self, **kwargs):
         task = get_object_or_404(Task, pk=self.kwargs['pk'])
@@ -27,7 +27,7 @@ class DetailPageView(TemplateView):
 class CreatePageView(View):
     def get(self, request, *args, **kwargs):
         form = TaskForm()
-        return render(request, 'create.html', {'form': form})
+        return render(request, 'Project/create.html', {'form': form})
 
     def post(self, request, *args, **kwargs):
         form = TaskForm(request.POST)
@@ -35,14 +35,14 @@ class CreatePageView(View):
             form.save()
             return redirect('home')
         else:
-            return render(request, 'create.html', {'form': form})
+            return render(request, 'Project/create.html', {'form': form})
 
 
 class EditPageView(View):
     def get(self, request, *args, **kwargs):
         task = get_object_or_404(Task, pk=self.kwargs['pk'])
         form = TaskForm(instance=task)
-        return render(request, 'update.html', {'form': form})
+        return render(request, 'Project/update.html', {'form': form})
 
     def post(self, request, *args, **kwargs):
         task = get_object_or_404(Task, pk=self.kwargs['pk'])
@@ -51,13 +51,13 @@ class EditPageView(View):
             form.save()
             return redirect('detail', pk=task.id)
         else:
-            return render(request, 'update.html', {'form': form})
+            return render(request, 'Project/update.html', {'form': form})
 
 
 class DeletePageView(View):
     def get(self, request, *args, **kwargs):
         task = get_object_or_404(Task, pk=self.kwargs['pk'])
-        return render(request, 'delete.html', {'task': task})
+        return render(request, 'Project/delete.html', {'task': task})
 
     def post(self, request, *args, **kwargs):
         task = get_object_or_404(Task, pk=self.kwargs['pk'])

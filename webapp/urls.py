@@ -1,5 +1,5 @@
 from django.urls import path
-from webapp.views import HomePageView, DetailPageView, CreatePageView, EditPageView, DeletePageView
+from webapp.templates.views.project_views import HomePageView, DetailPageView, CreatePageView, EditPageView, DeletePageView
 
 urlpatterns = [
     path('', HomePageView.as_view(), name='home'),
