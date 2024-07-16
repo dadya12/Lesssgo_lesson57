@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+    <a class="nav-link active" aria-current="page" href="{% url 'create' %}">Create Project</a>
+    <span style="margin-top: 8px; color: white">|</span>
+{% endblock %}
+
+
+<title>{% block title %}Delete{% endblock %}</title>
+
+{% block content %}
+    <center>
+        <h1 style="margin-top: 50px; margin-bottom: 50px">Are you sure !? </h1>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success">Yes</button>
+            <a class="btn btn-danger" href="{% url 'detail' pk=task.project.pk %}" role="button">No</a>
+        </form>
+    </center>
+{% endblock %}

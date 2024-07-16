@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+    <a class="nav-link active" aria-current="page" href="{% url 'create' %}">Create Project</a>
+    <span style="margin-top: 8px; color: white">|</span>
+    <a class="nav-link active" aria-current="page" href="{% url 'detail' pk=task.project.pk %}">Project Page</a>
+{% endblock %}
+
+<title>{% block title %}Create{% endblock %}</title>
+
+{% block content %}
+    <center>
+        <h1 style="margin-top: 50px; margin-bottom: 50px">Update Your Task</h1>
+    </center>
+    <form method="post">
+        {% include 'partial/universal_form.html' with value_submit='Update' %}
+    </form>
+{% endblock %}
