@@ -12,9 +12,10 @@ class TaskForm(forms.ModelForm):
 class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
-        fields = ['name', 'description', 'created_date']
+        fields = ['name', 'description', 'created_date', 'updated_date']
         widgets = {
-            'created_date': forms.SelectDateWidget
+            'created_date': forms.SelectDateWidget,
+            'updated_date': forms.SelectDateWidget
         }
 
 

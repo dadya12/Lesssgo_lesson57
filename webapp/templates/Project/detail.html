@@ -17,6 +17,7 @@
             <div class="card-body">
                 <h5 class="card-title">Description: {{ project.description }}</h5>
                 <p class="card-text">Create: {{ project.created_date }}</p>
+                <p class="card-text">Update: {{ project.updated_date }}</p>
                 <a href="{% url 'edit' project.pk %}" class="btn btn-success">Edit Project</a>
                 <a href="{% url 'delete' project.pk %}" class="btn btn-danger" style="margin-left: 30px">Delete Project</a>
             </div>
