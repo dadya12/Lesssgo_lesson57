@@ -1,5 +1,7 @@
 from django.urls import path
-from webapp.templates.views.project_views import HomePageView, DetailPageView, CreatePageView, EditPageView, DeletePageView
+from webapp.templates.views.project_views import HomePageView, DetailPageView, CreatePageView, EditPageView, \
+    DeletePageView
+from webapp.templates.views.task_views import TaskCreateView, TaskDetailView, TaskEditView, TaskDeleteView
 
 urlpatterns = [
     path('', HomePageView.as_view(), name='home'),
@@ -7,4 +9,8 @@ urlpatterns = [
     path('create/', CreatePageView.as_view(), name='create'),
     path('edit/<int:pk>/', EditPageView.as_view(), name='edit'),
     path('delete/<int:pk>/', DeletePageView.as_view(), name='delete'),
+    path('task/<int:pk>/create', TaskCreateView.as_view(), name='task_create'),
+    path('task/<int:pk>/detail', TaskDetailView.as_view(), name='task_detail'),
+    path('task/<int:pk>/update', TaskEditView.as_view(), name='task_update'),
+    path('task/<int:pk>/delete', TaskDeleteView.as_view(), name='task_delete'),
 ]

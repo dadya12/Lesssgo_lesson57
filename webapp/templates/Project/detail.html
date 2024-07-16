@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 
 {% block navbar %}
+    <a class="nav-link active" aria-current="page" href="{% url 'create' %}">Create Project</a>
     <span style="margin-top: 8px; color: white">|</span>
-    <a class="nav-link active" aria-current="page" href="{% url 'create' %}">Create Task</a>
+    <a class="nav-link active" aria-current="page" href="{% url 'task_create' pk=project.pk %}">Create Task</a>
     <span style="margin-top: 8px; color: white">|</span>
 {% endblock %}
 
@@ -10,22 +11,46 @@
 
 {% block content %}
     <center>
-        <h1 style="margin-top: 50px; margin-bottom: 50px">Your Task:</h1>
-        <div class="card mb-3" style="border: solid 2px; border-radius: 20px; width: 35%">
-            <h5 class="card-header">{{ task.summary }}</h5>
+        <h1 style="margin-top: 50px; margin-bottom: 50px">Your Project:</h1>
+        <div class="card mb-3" style="border: solid 2px green; border-radius: 20px; width: 35%">
+            <h5 class="card-header">{{ project.name }}</h5>
             <div class="card-body">
-                <h5 class="card-title">Description: {{ task.description }}</h5>
-                <p class="card-text">Type:
-                    {% for t in task.type.all %}
-                        {{ t.name }}{% if forloop.last %}.{% else %},{% endif %}
-                    {% endfor %}
-                </p>
-                <p class="card-text">Status: {{ task.status }}.</p>
-                <p class="card-text">Create: {{ task.created_date }}</p>
-                <a href="{% url 'edit' task.pk %}" class="btn btn-dark">Edit Task</a>
-                <a href="{% url 'delete' task.pk %}" class="btn btn-dark" style="margin-left: 30px">Delete Task</a>
+                <h5 class="card-title">Description: {{ project.description }}</h5>
+                <p class="card-text">Create: {{ project.created_date }}</p>
+                <a href="{% url 'edit' project.pk %}" class="btn btn-success">Edit Project</a>
+                <a href="{% url 'delete' project.pk %}" class="btn btn-danger" style="margin-left: 30px">Delete Project</a>
             </div>
         </div>
     </center>
+
+    <center><h1 style="margin-top: 50px; margin-bottom: 50px">Your Tags:</h1></center>
+
+    <div class="row row-cols-3 mt-2">
+        {% for t in project.tasks.all %}
+            <div class="col" style="margin-bottom: 50px">
+                <div class="card">
+                    <div class="card-body" style="border: solid 2px green; border-radius: 10px">
+                        <h5 class="card-title">Summary: {{ t.summary }} <a href="{% url 'task_detail' t.pk %}"
+                                                                           style="color: black; font-size: 30px"><i
+                                class="bi bi-info-circle-fill"></i></a></h5>
+                        <p class="card-text">Status: {{ t.status }}</p>
+                        <p class="card-text">Type:
+                            {% for type in t.type.all %}
+                                {{ type.name }}{% if forloop.last %}.{% else %},{% endif %}
+                            {% endfor %}
+                        </p>
+                        <div class="card-footer bg-dark">
+                            <a href="{% url 'task_update' t.pk %}"
+                               style="text-decoration: none; color: white">Edit Task</a>
+                            <a href="{% url 'task_delete' t.pk %}"
+                               style="text-decoration: none; color: white; margin-left: 200px">Delete Task</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+                <h5>Tasks Not Found :( </h5>
+        {% endfor %}
+    </div>
 
 {% endblock %}

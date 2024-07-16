@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 
 {% block navbar %}
-    <span style="margin-top: 8px; color: white">|</span>
-    <a class="nav-link active" aria-current="page" href="{% url 'create' %}">Create Task</a>
+    <a class="nav-link active" aria-current="page" href="{% url 'create' %}">Create Project</a>
     <span style="margin-top: 8px; color: white">|</span>
 {% endblock %}
 
@@ -15,7 +14,7 @@
         <form method="post">
             {% csrf_token %}
             <button type="submit" class="btn btn-success">Yes</button>
-            <a class="btn btn-danger" href="{% url 'detail' pk=task.pk %}" role="button">No</a>
+            <a class="btn btn-danger" href="{% url 'detail' pk=project.pk %}" role="button">No</a>
         </form>
     </center>
 {% endblock %}

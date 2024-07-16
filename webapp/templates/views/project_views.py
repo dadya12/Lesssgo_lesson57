@@ -1,65 +1,65 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import TemplateView, View
-from webapp.forms import TaskForm
+from django.db.models import Q
+from django.shortcuts import reverse
+from django.urls import reverse_lazy
+from django.utils.http import urlencode
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from webapp.forms import ProjectForm, SearchForm
+from webapp.models import Project
 
-from webapp.models import Task
 
+class HomePageView(ListView):
+    model = Project
+    template_name = 'Project/home.html'
+    context_object_name = 'projects'
+    paginate_by = 5
 
-class HomePageView(TemplateView):
-    template_name = 'home.html'
+    def dispatch(self, request, *args, **kwargs):
+        self.search_form = SearchForm(request.GET)
+        self.search_value = None
+        if self.search_form.is_valid():
+            self.search_value = self.search_form.cleaned_data['search']
+        return super().dispatch(request, *args, **kwargs)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['task'] = Task.objects.all()
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        if self.search_value:
+            queryset = queryset.filter(
+                Q(name__icontains=self.search_value) | Q(description__icontains=self.search_value))
+        return queryset
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(object_list=object_list, **kwargs)
+        context['form'] = self.search_form
+        if self.search_value:
+            context['query'] = urlencode({'search': self.search_value})
+            context['search_value'] = self.search_value
         return context
 
 
-class DetailPageView(TemplateView):
+class DetailPageView(DetailView):
+    model = Project
     template_name = 'Project/detail.html'
 
-    def get_context_data(self, **kwargs):
-        task = get_object_or_404(Task, pk=self.kwargs['pk'])
-        context = super().get_context_data(**kwargs)
-        context['task'] = task
-        return context
+
+class CreatePageView(CreateView):
+    model = Project
+    template_name = 'Project/create.html'
+    form_class = ProjectForm
+
+    def get_success_url(self):
+        return reverse('detail', kwargs={'pk': self.object.pk})
 
 
-class CreatePageView(View):
-    def get(self, request, *args, **kwargs):
-        form = TaskForm()
-        return render(request, 'Project/create.html', {'form': form})
+class EditPageView(UpdateView):
+    model = Project
+    form_class = ProjectForm
+    template_name = 'Project/update.html'
 
-    def post(self, request, *args, **kwargs):
-        form = TaskForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('home')
-        else:
-            return render(request, 'Project/create.html', {'form': form})
+    def get_success_url(self):
+        return reverse('detail', kwargs={'pk': self.object.pk})
 
 
-class EditPageView(View):
-    def get(self, request, *args, **kwargs):
-        task = get_object_or_404(Task, pk=self.kwargs['pk'])
-        form = TaskForm(instance=task)
-        return render(request, 'Project/update.html', {'form': form})
-
-    def post(self, request, *args, **kwargs):
-        task = get_object_or_404(Task, pk=self.kwargs['pk'])
-        form = TaskForm(request.POST, instance=task)
-        if form.is_valid():
-            form.save()
-            return redirect('detail', pk=task.id)
-        else:
-            return render(request, 'Project/update.html', {'form': form})
-
-
-class DeletePageView(View):
-    def get(self, request, *args, **kwargs):
-        task = get_object_or_404(Task, pk=self.kwargs['pk'])
-        return render(request, 'Project/delete.html', {'task': task})
-
-    def post(self, request, *args, **kwargs):
-        task = get_object_or_404(Task, pk=self.kwargs['pk'])
-        task.delete()
-        return redirect('home')
+class DeletePageView(DeleteView):
+    model = Project
+    template_name = 'Project/delete.html'
+    success_url = reverse_lazy('home')

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+    <a class="nav-link active" aria-current="page" href="{% url 'create' %}">Create Project</a>
+    <span style="margin-top: 8px; color: white">|</span>
+{% endblock %}
+
+<title>{% block title %}Projects{% endblock %}</title>
+
+{% block content %}
+
+    <div style="margin-top: 50px">
+        {% include 'partial/search.html' %}
+    </div>
+
+    <center>
+        <h1 style="margin-top: 50px">Your Projects:</h1>
+    </center>
+    <div class="row row-cols-3">
+        {% for p in projects %}
+            <div class="col">
+                <div class="card mb-3"
+                     style="width: 18rem; border-radius: 20px; margin-top: 50px; border: 3px solid green">
+                    <div class="card-body">
+                        <h4 class="card-title" style="margin-bottom: 20px">{{ p.name }}</h4>
+                        <hr>
+                        <h6 class="card-text" style="font-size: 14px; margin-bottom: 20px">{{ p.description }}</h6>
+                        <a href="{% url 'detail' p.pk %}" class="btn btn-success">See more</a>
+                        <a href="{% url 'edit' p.pk %}" class="btn btn-dark" style="margin-left: 40px;">Edit Project</a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <h5>Project Not Found :( </h5>
+        {% endfor %}
+    </div>
+    <div class="container" style="margin-bottom: 50px; align-items: center">
+        {% if is_paginated %}
+            {% include 'partial/pagination.html' %}
+        {% endif %}
+    </div>
+{% endblock %}
