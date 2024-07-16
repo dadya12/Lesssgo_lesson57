@@ -43,27 +43,14 @@
 },
 {
   "model": "webapp.task",
-  "pk": 1,
-  "fields": {
-    "summary": "Project57",
-    "description": "I do my pj57",
-    "status": 2,
-    "created_date": "2024-07-08T18:14:03.363Z",
-    "updated_date": "2024-07-09T09:25:26.297Z",
-    "type": [
-      1
-    ]
-  }
-},
-{
-  "model": "webapp.task",
   "pk": 2,
   "fields": {
-    "summary": "Project56",
+    "summary": "Project56667",
     "description": "I do my pj56",
     "status": 1,
     "created_date": "2024-07-08T18:15:41.369Z",
-    "updated_date": "2024-07-09T09:25:32.527Z",
+    "updated_date": "2024-07-16T16:49:47.344Z",
+    "project": 2,
     "type": [
       1
     ]
@@ -73,11 +60,12 @@
   "model": "webapp.task",
   "pk": 3,
   "fields": {
-    "summary": "Project55",
+    "summary": "Project5555",
     "description": "I done my pj55",
     "status": 3,
     "created_date": "2024-07-08T18:15:56.974Z",
-    "updated_date": "2024-07-09T09:25:40.129Z",
+    "updated_date": "2024-07-16T15:57:56.914Z",
+    "project": 3,
     "type": [
       1,
       2,
@@ -89,11 +77,12 @@
   "model": "webapp.task",
   "pk": 4,
   "fields": {
-    "summary": "Project54",
+    "summary": "Project5444",
     "description": "I find bug in pj54",
     "status": 2,
     "created_date": "2024-07-08T18:16:42.890Z",
-    "updated_date": "2024-07-09T09:32:26.420Z",
+    "updated_date": "2024-07-16T15:58:04.603Z",
+    "project": 4,
     "type": [
       1
     ]
@@ -103,11 +92,12 @@
   "model": "webapp.task",
   "pk": 5,
   "fields": {
-    "summary": "Project53",
+    "summary": "Project5333",
     "description": "I done bug in pj53",
     "status": 3,
     "created_date": "2024-07-08T18:17:27.301Z",
-    "updated_date": "2024-07-09T09:26:19.389Z",
+    "updated_date": "2024-07-16T16:38:26.878Z",
+    "project": 1,
     "type": [
       2,
       3
@@ -118,11 +108,12 @@
   "model": "webapp.task",
   "pk": 6,
   "fields": {
-    "summary": "Project52",
+    "summary": "Project5222",
     "description": "I do my pj52",
     "status": 1,
     "created_date": "2024-07-08T20:03:21.533Z",
-    "updated_date": "2024-07-09T09:26:24.398Z",
+    "updated_date": "2024-07-16T15:58:21.088Z",
+    "project": 6,
     "type": [
       3
     ]
@@ -132,13 +123,16 @@
   "model": "webapp.task",
   "pk": 9,
   "fields": {
-    "summary": "Project49",
-    "description": "Oke pj 49",
+    "summary": "Project4999",
+    "description": "Oke pj 49999999999999999",
     "status": 3,
     "created_date": "2024-07-11T15:41:35.351Z",
-    "updated_date": "2024-07-11T15:41:35.351Z",
+    "updated_date": "2024-07-16T16:51:04.449Z",
+    "project": 11,
     "type": [
-      2
+      1,
+      2,
+      3
     ]
   }
 },
@@ -146,11 +140,12 @@
   "model": "webapp.task",
   "pk": 10,
   "fields": {
-    "summary": "Project48",
+    "summary": "Project4888",
     "description": "Oke pj 48",
     "status": 2,
     "created_date": "2024-07-11T15:42:37.002Z",
-    "updated_date": "2024-07-11T15:42:37.002Z",
+    "updated_date": "2024-07-16T15:58:35.883Z",
+    "project": 5,
     "type": [
       1,
       2
@@ -166,6 +161,7 @@
     "status": 2,
     "created_date": "2024-07-11T15:43:01.516Z",
     "updated_date": "2024-07-11T15:43:01.516Z",
+    "project": 1,
     "type": [
       1,
       2,
@@ -177,11 +173,12 @@
   "model": "webapp.task",
   "pk": 12,
   "fields": {
-    "summary": "Project46",
+    "summary": "Project4666",
     "description": "Oke pj 46",
     "status": 3,
     "created_date": "2024-07-11T15:43:02.959Z",
-    "updated_date": "2024-07-11T15:43:22.591Z",
+    "updated_date": "2024-07-16T15:58:48.239Z",
+    "project": 2,
     "type": [
       1,
       3
@@ -192,11 +189,12 @@
   "model": "webapp.task",
   "pk": 13,
   "fields": {
-    "summary": "Project45",
+    "summary": "Project4555",
     "description": "Oke pj 45",
     "status": 1,
     "created_date": "2024-07-11T15:43:47.868Z",
-    "updated_date": "2024-07-11T15:43:47.868Z",
+    "updated_date": "2024-07-16T15:58:55.752Z",
+    "project": 2,
     "type": [
       1
     ]
@@ -206,11 +204,12 @@
   "model": "webapp.task",
   "pk": 14,
   "fields": {
-    "summary": "Project44",
+    "summary": "Project4444",
     "description": "Oke pj 44",
     "status": 1,
     "created_date": "2024-07-11T15:44:01.504Z",
-    "updated_date": "2024-07-11T15:44:01.504Z",
+    "updated_date": "2024-07-16T15:59:03.095Z",
+    "project": 3,
     "type": [
       3
     ]
@@ -224,7 +223,8 @@
     "description": "Prosto anglo no rus",
     "status": 2,
     "created_date": "2024-07-11T15:46:45.344Z",
-    "updated_date": "2024-07-11T15:46:45.347Z",
+    "updated_date": "2024-07-16T15:59:10.682Z",
+    "project": 3,
     "type": [
       1,
       3
@@ -239,7 +239,8 @@
     "description": "Best singer",
     "status": 1,
     "created_date": "2024-07-11T15:47:28.815Z",
-    "updated_date": "2024-07-11T15:47:28.815Z",
+    "updated_date": "2024-07-16T15:59:17.870Z",
+    "project": 6,
     "type": [
       3
     ]
@@ -253,10 +254,136 @@
     "description": "Not Project btw",
     "status": 3,
     "created_date": "2024-07-11T15:47:54.736Z",
-    "updated_date": "2024-07-11T15:47:54.736Z",
+    "updated_date": "2024-07-16T16:03:17.912Z",
+    "project": 4,
     "type": [
       2
     ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 19,
+  "fields": {
+    "summary": "Testokeatoneoke",
+    "description": "",
+    "status": 1,
+    "created_date": "2024-07-15T17:35:57.160Z",
+    "updated_date": "2024-07-16T15:59:22.829Z",
+    "project": 6,
+    "type": [
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 1,
+  "fields": {
+    "name": "Adidasss",
+    "description": "Super puper",
+    "created_date": "2024-07-15",
+    "updated_date": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 2,
+  "fields": {
+    "name": "Nike",
+    "description": "ProstoNike",
+    "created_date": "2024-07-15",
+    "updated_date": "2024-07-15"
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 3,
+  "fields": {
+    "name": "Super puper da",
+    "description": "Ogo super",
+    "created_date": "2024-07-15",
+    "updated_date": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 4,
+  "fields": {
+    "name": "Vau super",
+    "description": "Eto vau super",
+    "created_date": "2024-07-15",
+    "updated_date": "2024-07-15"
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 5,
+  "fields": {
+    "name": "Neveroyatno",
+    "description": "Ogo eto neveroyatno",
+    "created_date": "2024-07-15",
+    "updated_date": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 6,
+  "fields": {
+    "name": "Dark chocolate 222222",
+    "description": "IAJIdsjijcd",
+    "created_date": "2024-07-15",
+    "updated_date": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 7,
+  "fields": {
+    "name": "wfwdqwqd",
+    "description": "wdwdwd",
+    "created_date": "2024-07-15",
+    "updated_date": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 8,
+  "fields": {
+    "name": "qwdqwdsad",
+    "description": "wqdwdas",
+    "created_date": "2024-07-15",
+    "updated_date": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 9,
+  "fields": {
+    "name": "sadsadsa",
+    "description": "asdasdas",
+    "created_date": "2024-07-15",
+    "updated_date": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 10,
+  "fields": {
+    "name": "sadasd",
+    "description": "qwdr4tg",
+    "created_date": "2024-07-15",
+    "updated_date": null
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 11,
+  "fields": {
+    "name": "wdwasdsad",
+    "description": "wqdq3e21e",
+    "created_date": "2024-07-15",
+    "updated_date": null
   }
 },
 {
