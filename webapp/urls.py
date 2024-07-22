@@ -3,6 +3,8 @@ from webapp.templates.views.project_views import HomePageView, DetailPageView, C
     DeletePageView
 from webapp.templates.views.task_views import TaskCreateView, TaskDetailView, TaskEditView, TaskDeleteView
 
+app_name = 'webapp'
+
 urlpatterns = [
     path('', HomePageView.as_view(), name='home'),
     path('detail/<int:pk>/', DetailPageView.as_view(), name='detail'),

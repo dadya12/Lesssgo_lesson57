@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block navbar %}
-    <a class="nav-link active" aria-current="page" href="{% url 'create' %}">Create Project</a>
+    <a class="nav-link active" aria-current="page" href="{% url 'webapp:create' %}">Create Project</a>
     <span style="margin-top: 8px; color: white">|</span>
-    <a class="nav-link active" aria-current="page" href="{% url 'detail' pk=task.project.pk %}">Project Page</a>
+    <a class="nav-link active" aria-current="page" href="{% url 'webapp:detail' pk=task.project.pk %}">Project Page</a>
     <span style="margin-top: 8px; color: white">|</span>
 {% endblock %}
 
@@ -24,8 +24,8 @@
                 </p>
                 <p class="card-text">Create: {{ task.created_date }}</p>
                 <p class="card-text">Update: {{ task.updated_date }}</p>
-                <a href="{% url 'task_update' task.pk %}" class="btn btn-success">Edit Task</a>
-                <a href="{% url  'task_delete' task.pk%}" class="btn btn-danger" style="margin-left: 30px">Delete Task</a>
+                <a href="{% url 'webapp:task_update' task.pk %}" class="btn btn-success">Edit Task</a>
+                <a href="{% url  'webapp:task_delete' task.pk%}" class="btn btn-danger" style="margin-left: 30px">Delete Task</a>
             </div>
         </div>
     </center>

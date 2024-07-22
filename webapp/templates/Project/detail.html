@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block navbar %}
-    <a class="nav-link active" aria-current="page" href="{% url 'create' %}">Create Project</a>
+    <a class="nav-link active" aria-current="page" href="{% url 'webapp:create' %}">Create Project</a>
     <span style="margin-top: 8px; color: white">|</span>
-    <a class="nav-link active" aria-current="page" href="{% url 'task_create' pk=project.pk %}">Create Task</a>
+    <a class="nav-link active" aria-current="page" href="{% url 'webapp:task_create' pk=project.pk %}">Create Task</a>
     <span style="margin-top: 8px; color: white">|</span>
 {% endblock %}
 
@@ -18,8 +18,8 @@
                 <h5 class="card-title">Description: {{ project.description }}</h5>
                 <p class="card-text">Create: {{ project.created_date }}</p>
                 <p class="card-text">Update: {{ project.updated_date }}</p>
-                <a href="{% url 'edit' project.pk %}" class="btn btn-success">Edit Project</a>
-                <a href="{% url 'delete' project.pk %}" class="btn btn-danger" style="margin-left: 30px">Delete Project</a>
+                <a href="{% url 'webapp:edit' project.pk %}" class="btn btn-success">Edit Project</a>
+                <a href="{% url 'webapp:delete' project.pk %}" class="btn btn-danger" style="margin-left: 30px">Delete Project</a>
             </div>
         </div>
     </center>
@@ -31,7 +31,7 @@
             <div class="col" style="margin-bottom: 50px">
                 <div class="card">
                     <div class="card-body" style="border: solid 2px green; border-radius: 10px">
-                        <h5 class="card-title">Summary: {{ t.summary }} <a href="{% url 'task_detail' t.pk %}"
+                        <h5 class="card-title">Summary: {{ t.summary }} <a href="{% url 'webapp:task_detail' t.pk %}"
                                                                            style="color: black; font-size: 30px"><i
                                 class="bi bi-info-circle-fill"></i></a></h5>
                         <p class="card-text">Status: {{ t.status }}</p>
@@ -41,9 +41,9 @@
                             {% endfor %}
                         </p>
                         <div class="card-footer bg-dark">
-                            <a href="{% url 'task_update' t.pk %}"
+                            <a href="{% url 'webapp:task_update' t.pk %}"
                                style="text-decoration: none; color: white">Edit Task</a>
-                            <a href="{% url 'task_delete' t.pk %}"
+                            <a href="{% url 'webapp:task_delete' t.pk %}"
                                style="text-decoration: none; color: white; margin-left: 200px">Delete Task</a>
                         </div>
                     </div>

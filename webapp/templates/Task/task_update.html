@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block navbar %}
-    <a class="nav-link active" aria-current="page" href="{% url 'create' %}">Create Project</a>
+    <a class="nav-link active" aria-current="page" href="{% url 'webapp:create' %}">Create Project</a>
     <span style="margin-top: 8px; color: white">|</span>
-    <a class="nav-link active" aria-current="page" href="{% url 'detail' pk=task.project.pk %}">Project Page</a>
+    <a class="nav-link active" aria-current="page" href="{% url 'webapp:detail' pk=task.project.pk %}">Project Page</a>
 {% endblock %}
 
 <title>{% block title %}Create{% endblock %}</title>

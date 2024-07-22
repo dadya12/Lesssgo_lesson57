@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block navbar %}
-    <a class="nav-link active" aria-current="page" href="{% url 'create' %}">Create Project</a>
+    <a class="nav-link active" aria-current="page" href="{% url 'webapp:create' %}">Create Project</a>
     <span style="margin-top: 8px; color: white">|</span>
 {% endblock %}
 
@@ -25,8 +25,8 @@
                         <h4 class="card-title" style="margin-bottom: 20px">{{ p.name }}</h4>
                         <hr>
                         <h6 class="card-text" style="font-size: 14px; margin-bottom: 20px">{{ p.description }}</h6>
-                        <a href="{% url 'detail' p.pk %}" class="btn btn-success">See more</a>
-                        <a href="{% url 'edit' p.pk %}" class="btn btn-dark" style="margin-left: 40px;">Edit Project</a>
+                        <a href="{% url 'webapp:detail' p.pk %}" class="btn btn-success">See more</a>
+                        <a href="{% url 'webapp:edit' p.pk %}" class="btn btn-dark" style="margin-left: 40px;">Edit Project</a>
                     </div>
                 </div>
             </div>

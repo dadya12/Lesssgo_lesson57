@@ -47,7 +47,7 @@ class CreatePageView(CreateView):
     form_class = ProjectForm
 
     def get_success_url(self):
-        return reverse('detail', kwargs={'pk': self.object.pk})
+        return reverse('webapp:detail', kwargs={'pk': self.object.pk})
 
 
 class EditPageView(UpdateView):
@@ -56,10 +56,10 @@ class EditPageView(UpdateView):
     template_name = 'Project/update.html'
 
     def get_success_url(self):
-        return reverse('detail', kwargs={'pk': self.object.pk})
+        return reverse('webapp:detail', kwargs={'pk': self.object.pk})
 
 
 class DeletePageView(DeleteView):
     model = Project
     template_name = 'Project/delete.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('webapp:home')
