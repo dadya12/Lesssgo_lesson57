@@ -5,6 +5,7 @@ from django.utils.http import urlencode
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from webapp.forms import ProjectForm, SearchForm
 from webapp.models import Project
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class HomePageView(ListView):
@@ -36,12 +37,12 @@ class HomePageView(ListView):
         return context
 
 
-class DetailPageView(DetailView):
+class DetailPageView(LoginRequiredMixin, DetailView):
     model = Project
     template_name = 'Project/detail.html'
 
 
-class CreatePageView(CreateView):
+class CreatePageView(LoginRequiredMixin, CreateView):
     model = Project
     template_name = 'Project/create.html'
     form_class = ProjectForm
@@ -50,7 +51,7 @@ class CreatePageView(CreateView):
         return reverse('webapp:detail', kwargs={'pk': self.object.pk})
 
 
-class EditPageView(UpdateView):
+class EditPageView(LoginRequiredMixin, UpdateView):
     model = Project
     form_class = ProjectForm
     template_name = 'Project/update.html'
@@ -59,7 +60,7 @@ class EditPageView(UpdateView):
         return reverse('webapp:detail', kwargs={'pk': self.object.pk})
 
 
-class DeletePageView(DeleteView):
+class DeletePageView(LoginRequiredMixin, DeleteView):
     model = Project
     template_name = 'Project/delete.html'
     success_url = reverse_lazy('webapp:home')
