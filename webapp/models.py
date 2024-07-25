@@ -1,5 +1,6 @@
 from django.core.exceptions import ValidationError
 from django.db import models
+from django.contrib.auth import get_user_model
 
 
 class Type(models.Model):
@@ -44,6 +45,8 @@ class Task(models.Model):
 class Project(models.Model):
     name = models.CharField(max_length=50, verbose_name='Название')
     description = models.TextField(max_length=100, verbose_name='Описание')
+    users = models.ManyToManyField(get_user_model(), related_name='projects', verbose_name='Пользователь', null=True,
+                                   blank=True)
     created_date = models.DateField(verbose_name='Дата создания')
     updated_date = models.DateField(verbose_name='Дата обновления', null=True, blank=True)
 

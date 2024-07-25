@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h4 style="margin-top: 50px">Change user in project - "{{ projects.name }}"</h4>
+    <form method="post" style="display: inline">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary" type="submit">Change User</button>
+    </form>
+    <a class="btn btn-danger ms-3" href="{% url 'webapp:detail' pk=projects.pk %}">Сancel</a>
+
+{% endblock %}

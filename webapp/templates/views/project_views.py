@@ -3,9 +3,9 @@ from django.shortcuts import reverse
 from django.urls import reverse_lazy
 from django.utils.http import urlencode
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from webapp.forms import ProjectForm, SearchForm
+from webapp.forms import ProjectForm, SearchForm, ProjectUserForm
 from webapp.models import Project
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 
 class HomePageView(ListView):
@@ -47,6 +47,12 @@ class CreatePageView(LoginRequiredMixin, CreateView):
     template_name = 'Project/create.html'
     form_class = ProjectForm
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        response = super().form_valid(form)
+        form.instance.users.add(self.request.user)
+        return response
+
     def get_success_url(self):
         return reverse('webapp:detail', kwargs={'pk': self.object.pk})
 
@@ -64,3 +70,18 @@ class DeletePageView(LoginRequiredMixin, DeleteView):
     model = Project
     template_name = 'Project/delete.html'
     success_url = reverse_lazy('webapp:home')
+
+
+class UpdateUserView(UpdateView):
+    model = Project
+    form_class = ProjectUserForm
+    template_name = 'update_user.html'
+    context_object_name = 'projects'
+    permission_required = 'auth.change_user'
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('webapp:detail', kwargs={'pk': self.object.pk})

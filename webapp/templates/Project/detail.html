@@ -20,7 +20,18 @@
                 <p class="card-text">Update: {{ project.updated_date }}</p>
                 <a href="{% url 'webapp:edit' project.pk %}" class="btn btn-success">Edit Project</a>
                 <a href="{% url 'webapp:delete' project.pk %}" class="btn btn-danger" style="margin-left: 30px">Delete Project</a>
+                <a href="{% url 'webapp:update_user' project.pk %}" class="btn btn-dark"
+                           style="text-decoration: none; color: white; margin-left: 20px">Update User!</a>
             </div>
+            <span style="color: blue;">
+                    <b>Пользователь:</b>
+                    {% for user in project.users.all %}
+                        <br>
+                        {{ user.username }}
+                        {% if not forloop.last %},
+                        {% endif %}
+                    {% endfor %}
+                </span>
         </div>
     </center>
 
