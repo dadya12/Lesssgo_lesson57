@@ -42,10 +42,11 @@ class DetailPageView(LoginRequiredMixin, DetailView):
     template_name = 'Project/detail.html'
 
 
-class CreatePageView(LoginRequiredMixin, CreateView):
+class CreatePageView(PermissionRequiredMixin, CreateView):
     model = Project
     template_name = 'Project/create.html'
     form_class = ProjectForm
+    permission_required = 'webapp.add_project'
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -57,27 +58,41 @@ class CreatePageView(LoginRequiredMixin, CreateView):
         return reverse('webapp:detail', kwargs={'pk': self.object.pk})
 
 
-class EditPageView(LoginRequiredMixin, UpdateView):
+class EditPageView(PermissionRequiredMixin, UpdateView):
     model = Project
     form_class = ProjectForm
     template_name = 'Project/update.html'
+    permission_required = 'webapp.change_project'
+
+    def has_permission(self):
+        projects = self.get_object()
+        return super().has_permission() and self.request.user in projects.users.all()
 
     def get_success_url(self):
         return reverse('webapp:detail', kwargs={'pk': self.object.pk})
 
 
-class DeletePageView(LoginRequiredMixin, DeleteView):
+class DeletePageView(PermissionRequiredMixin, DeleteView):
     model = Project
     template_name = 'Project/delete.html'
     success_url = reverse_lazy('webapp:home')
+    permission_required = 'webapp.delete_project'
+
+    def has_permission(self):
+        projects = self.get_object()
+        return super().has_permission() and self.request.user in projects.users.all()
 
 
-class UpdateUserView(UpdateView):
+class UpdateUserView(PermissionRequiredMixin, UpdateView):
     model = Project
     form_class = ProjectUserForm
     template_name = 'update_user.html'
     context_object_name = 'projects'
     permission_required = 'auth.change_user'
+
+    def has_permission(self):
+        projects = self.get_object()
+        return super().has_permission() and self.request.user in projects.users.all()
 
     def form_valid(self, form):
         form.save()
