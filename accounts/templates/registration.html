@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+    <a class="nav-link active" aria-current="page" href="{% url 'webapp:home' %}">Projects Page</a>
+    <span style="margin-top: 8px; color: white">|</span>
+{% endblock %}
+
+<title>{% block title %}Registrate{% endblock %}</title>
+
+{% block content %}
+    <center><h1 style="margin-top: 50px; margin-bottom: 50px">Add new User</h1></center>
+    <form action="" method="post">
+        {% csrf_token %}
+        {% include 'partial/universal_form.html' with value_submit='Sign Up' %}
+    </form>
+{% endblock %}

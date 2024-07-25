@@ -1,3 +1,4 @@
 {% csrf_token %}
 {{ form.as_p }}
-<input type="submit" value="{{ value_submit }}">
+<input type="submit"
+       class="btn btn-outline-dark" value="{{ value_submit }}" style="border: 2px solid; margin-top: 30px; border-radius: 15px">
