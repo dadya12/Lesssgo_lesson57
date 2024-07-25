@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
 
 {% block navbar %}
+    {% if perms.webapp.add_project %}
     <a class="nav-link active" aria-current="page" href="{% url 'webapp:create' %}">Create Project</a>
     <span style="margin-top: 8px; color: white">|</span>
+    {% endif %}
+    {% if perms.webapp.add_task and request.user in project.users.all %}
     <a class="nav-link active" aria-current="page" href="{% url 'webapp:task_create' pk=project.pk %}">Create Task</a>
     <span style="margin-top: 8px; color: white">|</span>
+    {% endif %}
 {% endblock %}
 
 <title>{% block title %}Detail{% endblock %}</title>
@@ -18,10 +22,16 @@
                 <h5 class="card-title">Description: {{ project.description }}</h5>
                 <p class="card-text">Create: {{ project.created_date }}</p>
                 <p class="card-text">Update: {{ project.updated_date }}</p>
+                {% if perms.webapp.change_project and request.user in project.users.all %}
                 <a href="{% url 'webapp:edit' project.pk %}" class="btn btn-success">Edit Project</a>
+                {% endif %}
+                {% if perms.webapp.delete_project and request.user in project.users.all %}
                 <a href="{% url 'webapp:delete' project.pk %}" class="btn btn-danger" style="margin-left: 30px">Delete Project</a>
+                {% endif %}
+                {% if perms.auth.change_user and request.user in project.users.all %}
                 <a href="{% url 'webapp:update_user' project.pk %}" class="btn btn-dark"
                            style="text-decoration: none; color: white; margin-left: 20px">Update User!</a>
+                {% endif %}
             </div>
             <span style="color: blue;">
                     <b>Пользователь:</b>
@@ -52,10 +62,14 @@
                             {% endfor %}
                         </p>
                         <div class="card-footer bg-dark">
+                            {% if perms.webapp.change_task and request.user in t.project.users.all %}
                             <a href="{% url 'webapp:task_update' t.pk %}"
                                style="text-decoration: none; color: white">Edit Task</a>
+                            {% endif %}
+                        {% if perms.webapp.delete_task and request.user in t.project.users.all %}
                             <a href="{% url 'webapp:task_delete' t.pk %}"
                                style="text-decoration: none; color: white; margin-left: 200px">Delete Task</a>
+                        {% endif %}
                         </div>
                     </div>
                 </div>

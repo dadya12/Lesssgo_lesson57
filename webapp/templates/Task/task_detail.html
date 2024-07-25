@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
 {% block navbar %}
+    {% if perms.webapp.add_project %}
     <a class="nav-link active" aria-current="page" href="{% url 'webapp:create' %}">Create Project</a>
     <span style="margin-top: 8px; color: white">|</span>
+    {% endif %}
     <a class="nav-link active" aria-current="page" href="{% url 'webapp:detail' pk=task.project.pk %}">Project Page</a>
     <span style="margin-top: 8px; color: white">|</span>
 {% endblock %}
@@ -24,8 +26,12 @@
                 </p>
                 <p class="card-text">Create: {{ task.created_date }}</p>
                 <p class="card-text">Update: {{ task.updated_date }}</p>
+                {% if perms.webapp.change_task and request.user in task.project.users.all %}
                 <a href="{% url 'webapp:task_update' task.pk %}" class="btn btn-success">Edit Task</a>
+                {% endif %}
+                {% if perms.webapp.delete_task and request.user in task.project.users.all %}
                 <a href="{% url  'webapp:task_delete' task.pk%}" class="btn btn-danger" style="margin-left: 30px">Delete Task</a>
+                {% endif %}
             </div>
         </div>
     </center>
