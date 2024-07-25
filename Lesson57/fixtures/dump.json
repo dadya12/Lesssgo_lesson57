@@ -277,13 +277,32 @@
   }
 },
 {
+  "model": "webapp.task",
+  "pk": 27,
+  "fields": {
+    "summary": "Project5722",
+    "description": "wqdwqdwqd",
+    "status": 1,
+    "created_date": "2024-07-25T17:53:55.033Z",
+    "updated_date": "2024-07-25T17:53:55.033Z",
+    "project": 7,
+    "type": [
+      1,
+      2
+    ]
+  }
+},
+{
   "model": "webapp.project",
   "pk": 1,
   "fields": {
-    "name": "Adidasss",
+    "name": "Adida",
     "description": "Super puper",
     "created_date": "2024-07-15",
-    "updated_date": null
+    "updated_date": null,
+    "users": [
+      6
+    ]
   }
 },
 {
@@ -293,7 +312,10 @@
     "name": "Nike",
     "description": "ProstoNike",
     "created_date": "2024-07-15",
-    "updated_date": "2024-07-15"
+    "updated_date": "2024-07-15",
+    "users": [
+      6
+    ]
   }
 },
 {
@@ -303,7 +325,10 @@
     "name": "Super puper da",
     "description": "Ogo super",
     "created_date": "2024-07-15",
-    "updated_date": null
+    "updated_date": null,
+    "users": [
+      6
+    ]
   }
 },
 {
@@ -313,7 +338,10 @@
     "name": "Vau super",
     "description": "Eto vau super",
     "created_date": "2024-07-15",
-    "updated_date": "2024-07-15"
+    "updated_date": "2024-07-15",
+    "users": [
+      7
+    ]
   }
 },
 {
@@ -323,7 +351,10 @@
     "name": "Neveroyatno",
     "description": "Ogo eto neveroyatno",
     "created_date": "2024-07-15",
-    "updated_date": null
+    "updated_date": null,
+    "users": [
+      7
+    ]
   }
 },
 {
@@ -333,7 +364,10 @@
     "name": "Dark chocolate 222222",
     "description": "IAJIdsjijcd",
     "created_date": "2024-07-15",
-    "updated_date": null
+    "updated_date": null,
+    "users": [
+      7
+    ]
   }
 },
 {
@@ -343,7 +377,10 @@
     "name": "wfwdqwqd",
     "description": "wdwdwd",
     "created_date": "2024-07-15",
-    "updated_date": null
+    "updated_date": null,
+    "users": [
+      8
+    ]
   }
 },
 {
@@ -353,7 +390,10 @@
     "name": "qwdqwdsad",
     "description": "wqdwdas",
     "created_date": "2024-07-15",
-    "updated_date": null
+    "updated_date": null,
+    "users": [
+      8
+    ]
   }
 },
 {
@@ -363,7 +403,10 @@
     "name": "sadsadsa",
     "description": "asdasdas",
     "created_date": "2024-07-15",
-    "updated_date": null
+    "updated_date": null,
+    "users": [
+      8
+    ]
   }
 },
 {
@@ -373,7 +416,8 @@
     "name": "sadasd",
     "description": "qwdr4tg",
     "created_date": "2024-07-15",
-    "updated_date": null
+    "updated_date": null,
+    "users": []
   }
 },
 {
@@ -383,7 +427,41 @@
     "name": "wdwasdsad",
     "description": "wqdq3e21e",
     "created_date": "2024-07-15",
-    "updated_date": null
+    "updated_date": null,
+    "users": []
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 15,
+  "fields": {
+    "name": "sadsadqwdqwd",
+    "description": "dasdadqwqwdqwd",
+    "created_date": "2024-01-01",
+    "updated_date": "2033-12-19",
+    "users": []
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 16,
+  "fields": {
+    "name": "In Progress",
+    "description": "qwkdjmqwoijdq",
+    "created_date": "2024-01-01",
+    "updated_date": null,
+    "users": []
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 17,
+  "fields": {
+    "name": "Enhancement",
+    "description": "qwdqwdwqd",
+    "created_date": "2024-01-01",
+    "updated_date": null,
+    "users": []
   }
 },
 {
@@ -391,7 +469,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$720000$DAYQ5dMV9kA0nfKIIyWKgp$UNkfzY7EqybKSzo1rloi2SStpSLV5FJaSlG/cDNHN2w=",
-    "last_login": "2024-07-08T18:11:43.163Z",
+    "last_login": "2024-07-25T17:49:30.852Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -401,6 +479,66 @@
     "is_active": true,
     "date_joined": "2024-07-08T18:05:35.890Z",
     "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$xsfRa0OnJD8BZCsxoIwOUE$kE1MvnX+wvh7WdzPxMRFhFzzjaLge2FRdkdQa7dzPM8=",
+    "last_login": "2024-07-25T18:35:40.874Z",
+    "is_superuser": false,
+    "username": "manager",
+    "first_name": "super",
+    "last_name": "puper",
+    "email": "manager@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-07-25T17:29:45Z",
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$1643byUHoqORub9kLxugfw$FBuGKwf66m5kEY1CsRjw3ptcb/G/JMrAH/7FrIaVJa0=",
+    "last_login": "2024-07-25T18:34:35.011Z",
+    "is_superuser": false,
+    "username": "lead",
+    "first_name": "super",
+    "last_name": "puper",
+    "email": "lead@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-07-25T17:30:13Z",
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$2CiZVULwu6g6JINV4J50Xf$Fgt9WFaBY7q3NclR5pgnruoJgOlAUNXqiwvslATaPlE=",
+    "last_login": "2024-07-25T18:35:10.781Z",
+    "is_superuser": false,
+    "username": "dev",
+    "first_name": "super",
+    "last_name": "puper",
+    "email": "dev@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-07-25T17:30:35Z",
+    "groups": [
+      3
+    ],
     "user_permissions": []
   }
 }
