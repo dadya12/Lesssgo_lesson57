@@ -1,17 +1,23 @@
 <div class="pagination" style="display: flex; justify-content: center; margin-top: 50px;">
     <span class="step-links" style="display: flex; align-items: center;">
-        {% if page_obj.number != 1 %}
-            <a href="?page=1" style="padding: 5px 10px; margin-right: 5px; border: 1px solid #ccc; border-radius: 5px; text-decoration: none;">1</a>
-        {% endif %}
-        {% if page_obj.has_previous %}
-            <a href="?page={{ page_obj.previous_page_number }}" style="padding: 5px 10px; margin-right: 5px; border: 1px solid #ccc; border-radius: 5px; text-decoration: none;">{{ page_obj.previous_page_number }}</a>
-        {% endif %}
-        <span class="pagination-box" style="width: 30px; height: 30px; margin: 0 5px; border: 1px solid #ccc; border-radius: 5px; text-align: center; line-height: 30px;">{{ page_obj.number }}</span>
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}" style="padding: 5px 10px; margin-right: 5px; border: 1px solid #ccc; border-radius: 5px; text-decoration: none;">{{ page_obj.next_page_number }}</a>
-        {% endif %}
-        {% if page_obj.number != page_obj.paginator.num_pages %}
-            <a href="?page={{ page_obj.paginator.num_pages }}" style="padding: 5px 10px; margin-right: 5px; border: 1px solid #ccc; border-radius: 5px; text-decoration: none;">{{ page_obj.paginator.num_pages }}</a>
+        {% if page_obj.paginator.num_pages > 1 %}
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}" style="padding: 5px 10px; margin-right: 5px; border: 1px solid #ccc; border-radius: 5px; text-decoration: none;">Previous</a>
+            {% endif %}
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <span class="pagination-box" style="width: 30px; height: 30px; margin: 0 5px; border: 1px solid #ccc; border-radius: 5px; text-align: center; line-height: 30px;">{{ num }}</span>
+                {% elif num > page_obj.number|add:'-2' and num < page_obj.number|add:'2' %}
+                    <a href="?page={{ num }}" style="padding: 5px 10px; margin-right: 5px; border: 1px solid #ccc; border-radius: 5px; text-decoration: none;">{{ num }}</a>
+                {% elif num == page_obj.paginator.num_pages %}
+                    <a href="?page={{ num }}" style="padding: 5px 10px; margin-right: 5px; border: 1px solid #ccc; border-radius: 5px; text-decoration: none;">{{ num }}</a>
+                {% elif num == page_obj.number|add:'-2' or num == page_obj.number|add:'2' %}
+                    <span style="padding: 5px 10px; margin-right: 5px; border: 1px solid #ccc; border-radius: 5px;">...</span>
+                {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}" style="padding: 5px 10px; margin-right: 5px; border: 1px solid #ccc; border-radius: 5px; text-decoration: none;">Next</a>
+            {% endif %}
         {% endif %}
     </span>
 </div>

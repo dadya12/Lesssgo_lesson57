@@ -1,7 +1,7 @@
 from django.urls import path
-from webapp.templates.views.project_views import HomePageView, DetailPageView, CreatePageView, EditPageView, \
+from webapp.views.project_views import HomePageView, DetailPageView, CreatePageView, EditPageView, \
     DeletePageView, UpdateUserView
-from webapp.templates.views.task_views import TaskCreateView, TaskDetailView, TaskEditView, TaskDeleteView
+from webapp.views.task_views import TaskCreateView, TaskDetailView, TaskEditView, TaskDeleteView
 
 app_name = 'webapp'
 
